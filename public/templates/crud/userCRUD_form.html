@@ -1,0 +1,51 @@
+<div class="crud-form" ng-controller="userCRUD_formCtrl as vm">
+    <h2>{{vm.title}}</h2>
+
+    <!-- If you remove the novalidate attribute, HTML5 native validation will be used. -->
+    <form name="userForm" novalidate ng-submit="vm.submit(userForm.$valid, vm.user)">
+        <label for="uf_firstName">First Name:</label> <input type="text" name="firstName" id="uf_firstName" ng-model="vm.user.firstName"><br /><br />
+
+        <label for="uf_lastName">Last Name:</label> <input type="text" name="lastName" id="uf_lastName" required ng-model="vm.user.lastName"><br />
+        <div ng-messages="userForm.lastName.$error" ng-if="userForm.$submitted || userForm.lastName.$touched">
+            <div ng-message="required">Last Name is required</div>
+        </div><br />
+
+        <label for="uf_email">Email:</label> <input type="email" name="email" id="uf_email" required email-unique="{{vm.user.id}}" ng-model="vm.user.email"><br />
+        <div ng-messages="userForm.email.$error" ng-if="userForm.$submitted || userForm.email.$touched">
+            <div ng-message="required">Email is required</div>
+            <div ng-message="email">Email is not a valid email address</div>
+            <div ng-message="emailunique">Email is not unique</div>
+        </div><br />
+
+        <div ng-if="vm.user.id">
+            <label>URI:</label> <a href="/api/users/{{vm.user.id}}"><code>GET /api/users/{{vm.user.id}}</code></a><br /><br />
+        </div>
+
+        <button type="submit">OK</button>
+        <button type="button" ng-click="vm.Cancel()">Cancel</button>
+    </form>
+
+    <article ng-non-bindable>
+        <h3>Moving Parts</h3>
+        <ul>
+            <li>template: templates/crud/userCRUD_form.html</li>
+            <li>custom async validator: scripts/user/emailUniqueValidator.js</li>
+            <li>controller: scripts/crud/userCRUD_formCtrl.js</li>
+            <li>service: scripts/user/userService.js</li>
+        </ul>
+
+        <h3>Concepts</h3>
+        <ul>
+            <li>ng-controller</li>
+            <li>interpolation directive {{}}</li>
+            <li>form element with name and ng-submit</li>
+            <li>HTML5 vs AngularJS validation via novalidate attribute</li>
+            <li>form controls with name and ng-model</li>
+            <li>Promise construction via $q service (in custom validator)</li>
+            <li>ng-messages</li>
+            <li>ng-message</li>
+            <li>ng-if</li>
+            <li>form "button" button vs. "submit" button</li>
+        </ul>
+    </article>
+</div>

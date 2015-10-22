@@ -1,0 +1,24 @@
+<div class="crud-delete" ng-controller="userCRUD_deleteCtrl as vm">
+    <h2>Delete this User?</h2>
+
+    <div biz-card="vm.user"></div>
+
+    <button ng-click="vm.Yes()">Yes</button>
+    <button ng-click="vm.No()">No</button>
+
+    <article ng-non-bindable>
+        <h3>Moving Parts</h3>
+        <ul>
+            <li>template: templates/crud/userCRUD_delete.html</li>
+            <li>directive: scripts/user/bizCardDirective.js</li>
+            <li>controller: scripts/crud/userCRUD_deleteCtrl.js</li>
+            <li>service: scripts/user/userService.js</li>
+        </ul>
+
+        <h3>Concepts</h3>
+        <ul>
+            <li>ng-controller</li>
+            <li>(In controller) Access to parent controller via injected $scope</li>
+        </ul>
+    </article>
+</div>

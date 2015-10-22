@@ -1,0 +1,22 @@
+{
+  "name": "Angular Intro App",
+  "description": "Overview of AngularJS",
+  "main": "index.ejs",
+  "authors": [
+    "Alvin Pivowar alvin@ng-al.com"
+  ],
+  "license": "MIT",
+  "homepage": "www.ng-al.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.4.5",
+    "angular-messages": "^1.4.5",
+    "angular-route": "^1.4.5"
+  }
+}

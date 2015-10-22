@@ -1,0 +1,26 @@
+<div class="crud-view" ng-controller="userCRUD_viewCtrl as vm">
+    <h2>View User</h2>
+    <form>
+        <label>First Name:</label><span>{{vm.user.firstName}}</span>&nbsp;&nbsp;
+        <label>Last Name:</label><span>{{vm.user.lastName}}</span><br />
+        <label>Email:</label><a href="mailto:{{vm.user.email}}">{{vm.user.email}}</a><br /><br />
+        <label>ID:</label><code>{{vm.user.id}}</code>
+    </form>
+    <button ng-click="vm.Close()">Close</button>
+
+    <article ng-non-bindable>
+        <h3>Moving Parts</h3>
+        <ul>
+            <li>template: templates/crud/userCRUD_view.html</li>
+            <li>controller: scripts/crud/userCRUD_viewCtrl.js</li>
+            <li>service: (none)</li>
+        </ul>
+
+        <h3>Concepts</h3>
+        <ul>
+            <li>ng-controller</li>
+            <li>interpolation directive {{}}</li>
+            <li>(In controller) Access to parent controller via injected $scope</li>
+        </ul>
+    </article>
+</div>

@@ -1,0 +1,36 @@
+<div class="user-cards" ng-controller="listUserCtrl as vm">
+    <h2>Filter Users by Vowel</h2>
+
+    <select ng-model="vm.vowel">
+        <option value=''></option>
+        <option value='A'>A</option>
+        <option value='E'>E</option>
+        <option value='I'>I</option>
+        <option value='O'>O</option>
+        <option value='U'>U</option>
+    </select>
+
+    <div ng-repeat="user in (vm.users | vowelUserFilter:vm.vowel)">
+        <div biz-card="user"></div>
+    </div>
+
+    <article ng-non-bindable>
+        <h3>Moving Parts</h3>
+        <ul>
+            <li>template: templates/userCards.html</li>
+            <li>custom collection filter: scripts/user/vowelUserFilter</li>
+            <li>custom directive: scripts/user/bizCardDirective.js</li>
+            <li>custom value filter: scripts/user/fullNameFilter.js</li>
+            <li>controller: scripts/user/listUserCtrl.js</li>
+            <li>service: scripts/user/userService.js</li>
+        </ul>
+
+        <h3>Concepts</h3>
+        <ul>
+            <li>ng-controller</li>
+            <li>ng-model</li>
+            <li>ng-repeat</li>
+            <li>filtering</li>
+        </ul>
+    </article>
+</div>

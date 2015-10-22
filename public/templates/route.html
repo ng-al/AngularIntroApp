@@ -1,0 +1,57 @@
+<div ng-controller="navCtrl as vm">
+    <table>
+        <thead>
+            <th colspan="2">$location</th>
+        </thead>
+        <tbody>
+            <tr><td>absUrl</td><td>{{vm.$location.absUrl()}}</td></tr>
+            <tr><td>url</td><td>{{vm.$location.url()}}</td></tr>
+            <tr><td>protocol</td><td>{{vm.$location.protocol()}}</td></tr>
+            <tr><td>host</td><td>{{vm.$location.host()}}</td></tr>
+            <tr><td>port</td><td>{{vm.$location.port()}}</td></tr>
+            <tr><td>path</td><td>{{vm.$location.path()}}</td></tr>
+        </tbody>
+    </table>
+
+    <article ng-non-bindable>
+        <h3>ngRoute</h3>
+        The ngRoute module provides routing and deeplinking services and directives for angular apps.
+
+        <a href="https://docs.angularjs.org/api/ngRoute">AngularJS Documentation: ngRoute</a>
+
+        <h3>$routeProvider</h3>
+        Used for configuring routes.
+
+        <a href="https://docs.angularjs.org/api/ngRoute/provider/$routeProvider">AngularJS Documentation: $routeProvider</a>
+
+        <h3>ngView</h3>
+        ngView is a directive that complements the $route service by including the rendered template of the current route into the main layout (index.html) file.
+        Every time the current route changes, the included view changes with it according to the configuration of the $route service.
+
+        <a href="https://docs.angularjs.org/api/ngRoute/directive/ngView">AngularJS Documentation: ngView</a>
+
+        <h3>$location</h3>
+        The $location service parses the URL in the browser address bar (based on the window.location) and makes the URL available to your application.
+        Changes to the URL in the address bar are reflected into $location service and changes to $location are reflected into the browser address bar.
+
+        <a href="https://docs.angularjs.org/api/ng/service/$location">AngularJS Documentation: $location</a>
+
+        <h3>Moving Parts</h3>
+        <ul>
+            <li>ngRoute inclusion: scripts/app/IntroApp.js</li>
+            <li>route configuration: scripts/app/IntroRoute.js</li>
+            <li>nav template: templates/nav.html</li>
+            <li>nav controller: scripts/app/navCtrl.js (To control menu highlighting)</li>
+        </ul>
+
+        <h3>Concepts</h3>
+        <ul>
+            <li>ngRoute module</li>
+            <li>config block</li>
+            <li>$routeProvider</li>
+            <li>ng-view</li>
+            <li>ng-class</li>
+            <li>anchor tags with hash bang URI</li>
+        </ul>
+    </article>
+</div>
