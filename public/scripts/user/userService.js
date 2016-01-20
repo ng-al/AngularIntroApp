@@ -1,4 +1,5 @@
-/* Copyright (c) 2015 Alvin Pivowar */
+// Copyright (c) Alvin Pivowar 2015, 2016
+
 (function(){
     "use strict";
 
@@ -11,8 +12,8 @@
                 return $http.post("/api/users", user);
             }
 
-            function deleteUser(id) {
-                return $http.delete("/api/users/" + id);
+            function deleteUser(uuid) {
+                return $http.delete("/api/users/" + uuid);
             }
 
             function getAllUsers() {
@@ -24,7 +25,7 @@
             }
 
             function updateUser(user) {
-                return $http.put("/api/users/" + user.id, user);
+                return $http.put("/api/users/" + user.uuid, user);
             }
 
             return {

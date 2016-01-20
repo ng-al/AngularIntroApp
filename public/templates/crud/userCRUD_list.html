@@ -5,9 +5,9 @@
 
     <div class="list" ng-repeat="user in vm.users">
         <span>{{user.lastName}}, {{user.firstName}}</span>
-        <button ng-click="vm.showView(user.id)">View</button>
-        <button ng-click="vm.showEdit(user.id)">Edit</button>
-        <button ng-click="vm.showDelete(user.id)">Delete</button>
+        <button ng-click="vm.showView(user.uuid)">View</button>
+        <button ng-click="vm.showEdit(user.uuid)">Edit</button>
+        <button ng-click="vm.showDelete(user.uuid)">Delete</button>
         <hr>
     </div>
 

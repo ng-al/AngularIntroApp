@@ -1,7 +1,7 @@
 {
-  "name": "Angular Intro App",
+  "name": "AngularIntroApp",
   "description": "Overview of AngularJS",
-  "main": "index.ejs",
+  "main": ["node server", "server/views/index.ejs"],
   "authors": [
     "Alvin Pivowar alvin@ng-al.com"
   ],

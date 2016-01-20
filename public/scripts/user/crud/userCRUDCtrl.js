@@ -1,4 +1,5 @@
-/* Copyright (c) 2015 Alvin Pivowar */
+// Copyright (c) Alvin Pivowar 2015, 2016
+
 (function(){
     "use strict";
 
@@ -48,8 +49,8 @@
                 vm.currentUser = {};
             }
 
-            function showDelete(id) {
-                userService.getUser(id).then(function(data)
+            function showDelete(uuid) {
+                userService.getUser(uuid).then(function(data)
                 {
                     vm.currentMode = Mode.DELETE;
                     vm.currentUser = data.data;
@@ -58,8 +59,8 @@
                 });
             }
 
-            function showEdit(id) {
-                userService.getUser(id).then(function(data)
+            function showEdit(uuid) {
+                userService.getUser(uuid).then(function(data)
                 {
                     vm.currentMode = Mode.UPDATE;
                     vm.currentUser = data.data;
@@ -76,8 +77,8 @@
                 vm.currentUser = null;
             }
 
-            function showView(id) {
-                userService.getUser(id).then(function(data)
+            function showView(uuid) {
+                userService.getUser(uuid).then(function(data)
                 {
                     vm.currentMode = Mode.VIEW;
                     vm.currentUser = data.data;

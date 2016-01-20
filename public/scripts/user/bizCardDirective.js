@@ -1,6 +1,7 @@
-/* Copyright (c) 2015 Alvin Pivowar */
+// Copyright (c) Alvin Pivowar 2015, 2016
+
 (function(){
-    "user strict";
+    "use strict";
 
     angular
         .module("IntroApp")
@@ -16,7 +17,7 @@
                         '<img src="/images/angular.ico">' +
                         '<span>{{bizCard | fullName}}</span>' +
                         '<a href="mailto:{{bizCard.email}}">{{bizCard.email}}</a>' +
-                        '<code>{{bizCard.id}}</code>' +
+                        '<code>{{bizCard.uuid}}</code>' +
                     '</div>'
             };
         }]);

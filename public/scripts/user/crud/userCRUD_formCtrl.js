@@ -1,4 +1,5 @@
-/* Copyright (c) 2015 Alvin Pivowar */
+// Copyright (c) Alvin Pivowar 2015, 2016
+
 (function(){
     "use strict";
 
@@ -24,7 +25,7 @@
 
             function init(){
                 angular.extend(vm.user, crudCtrl.currentUser);
-                vm.isCreate = !vm.user.id;
+                vm.isCreate = !vm.user.uuid;
                 vm.title = vm.isCreate ? "Create New User" : "Edit User";
             }
 

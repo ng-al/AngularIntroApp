@@ -1,4 +1,5 @@
-/* Copyright (c) 2015 Alvin Pivowar */
+// Copyright (c) Alvin Pivowar 2015, 2016
+
 (function(){
     "use strict";
 
@@ -19,7 +20,7 @@
             }
 
             function yes() {
-                userService.deleteUser(vm.user.id).then(function(){
+                userService.deleteUser(vm.user.uuid).then(function(){
                     crudCtrl.showList(true);
                 });
             }

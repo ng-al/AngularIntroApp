@@ -10,15 +10,15 @@
             <div ng-message="required">Last Name is required</div>
         </div><br />
 
-        <label for="uf_email">Email:</label> <input type="email" name="email" id="uf_email" required email-unique="{{vm.user.id}}" ng-model="vm.user.email"><br />
+        <label for="uf_email">Email:</label> <input type="email" name="email" id="uf_email" required email-unique="{{vm.user.uuid}}" ng-model="vm.user.email"><br />
         <div ng-messages="userForm.email.$error" ng-if="userForm.$submitted || userForm.email.$touched">
             <div ng-message="required">Email is required</div>
             <div ng-message="email">Email is not a valid email address</div>
             <div ng-message="emailunique">Email is not unique</div>
         </div><br />
 
-        <div ng-if="vm.user.id">
-            <label>URI:</label> <a href="/api/users/{{vm.user.id}}"><code>GET /api/users/{{vm.user.id}}</code></a><br /><br />
+        <div ng-if="vm.user.uuid">
+            <label>URI:</label> <a href="/api/users/{{vm.user.uuid}}"><code>GET /api/users/{{vm.user.uuid}}</code></a><br /><br />
         </div>
 
         <button type="submit">OK</button>
