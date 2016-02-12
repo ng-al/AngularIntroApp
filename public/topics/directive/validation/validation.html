@@ -1,0 +1,27 @@
+<div class="directive-validation">
+    <article ng-non-bindable>
+        <h3>Custom Validators</h3>
+        <p>
+            Custom validators in AngularJS are directives. They can be synchronous or asynchronous.
+            Asynchronous validators are used when you need to call the server to perform the validation test.
+            For example, in this application when adding or editing a user, we want the email to be unique.
+            The only way to test this, is to ask the server to make this test via a database query.
+        </p>
+
+        <h4>Synchronous Validators</h4>
+        <p>
+            Within the <a class="inline" href="#routing/Dynamic">Routing/Dynamic</a> section, there is a validator
+            (<strong>/topics/routing/dynamic/properUriValidator.js</strong>) that ensures that the typed in path begins with a slash
+            and does not contain a hash.
+        </p>
+
+        <h4>Asynchronous Validators</h4>
+        <p>
+            Within the <a class="inline" href="#crud/Edit">CRUD/Edit</a> and
+            <a class="inline" href="#crud/Add">CRUD/Add</a> sections, there is a validator
+            (<strong>/topics/user/emailUniqueValidator.js</strong>) that ensures (via a server call) that two users do not
+            have the same email address.
+        </p>
+
+    </article>
+</div>

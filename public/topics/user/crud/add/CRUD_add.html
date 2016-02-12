@@ -1,0 +1,43 @@
+<div class="crud-form" ng-controller="CRUD_addCtrl as vm">
+    <h3>Add New User</h3>
+
+    <form name="userForm" novalidate ng-submit="vm.submit(userForm.$valid, vm.user)">
+        <label for="uf_firstName">First Name:</label> <input type="text" name="firstName" id="uf_firstName" ng-model="vm.user.firstName"><br /><br />
+
+        <label for="uf_lastName">Last Name:</label> <input type="text" name="lastName" id="uf_lastName" required ng-model="vm.user.lastName"><br />
+        <div ng-messages="userForm.lastName.$error" ng-if="userForm.$submitted || userForm.lastName.$touched">
+            <div ng-message="required">Last Name is required</div>
+        </div><br />
+
+        <label for="uf_email">Email:</label> <input type="email" name="email" id="uf_email" required email-unique="{{ vm.user.uuid }}" ng-model="vm.user.email"><br />
+        <div ng-messages="userForm.email.$error" ng-if="userForm.$submitted || userForm.email.$touched">
+            <div ng-message="required">Email is required</div>
+            <div ng-message="email">Email is not a valid email address</div>
+            <div ng-message="emailunique">Email is not unique</div>
+        </div><br />
+
+        <button button-style="flat" type="button" ng-click="vm.Cancel()">Cancel</button>
+        <button button-style="flat" type="submit">OK</button>
+    </form>
+
+    <div ng-include="'/docs/crud/add.doc'"></div>
+</div>
+
+
+<script type="text/ng-template" id="/docs/crud/add.doc">
+    <article class="on-page" ng-non-bindable>
+        <h3>Under the Covers</h3>
+        <ol>
+            <li>Note that the form is named, and that name is used to inspect validity.</li>
+            <li>Note also, that in order for that to work, all of the input fileds must be named.</li>
+            <li>The <strong>novalidate</strong> attribute suppresses native HTML5 validation messages.</li>
+            <li>This was to ensure that all validation messages (native and custom) are displayed at the same time.</li>
+            <li>All of the validation messages are displayed via the <strong>ng-message</strong> directives.</li>
+            <li>Note that the <stong>email-unique</stong> attribute fires a custom asynchronous validator that ensures email uniqueness on the <strong>server</strong>.</li>
+        </ol>
+        <p>
+            The custom async validator can be found at <strong>/topics/user/emailUniquevalidator.js</strong><br /><br />
+            An example of a synchronous validator: <a class="inline" href="#routing/Dynamic">Routing/Dynamic</a>
+        </p>
+    </article>
+</script>

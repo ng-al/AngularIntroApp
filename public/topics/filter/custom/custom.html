@@ -1,0 +1,47 @@
+<div class="filter-custom" ng-controller="listUserCtrl as vm">
+
+    <form>
+        <label for="vowelSelector">Select a vowel:</label>
+        <select ng-model="vowel">
+            <option></option>
+            <option>A</option>
+            <option>E</option>
+            <option>I</option>
+            <option>O</option>
+            <option>U</option>
+        </select>
+    </form>
+
+    <table>
+        <thead>
+        <th>uuid</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in (vm.users | vowelUserFilter : vowel)">
+            <td>{{ user.uuid }}</td>
+            <td>{{ user | fullName }}</td>
+            <td>{{ user.email }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div ng-include="'/docs/filter/custom.doc'"></div>
+</div>
+
+
+<script type="text/ng-template" id="/docs/filter/custom.doc">
+    <article class="on-page" ng-non-bindable>
+        <h3>Under the Covers</h3>
+        <ol>
+            <li>This uses the same controller and service as the list demo; only the template is different.</li>
+            <li>The table displays the full name rather than the first and last parts.</li>
+            <li>The value of the full name is created by a custom value filter. (<strong>/topics/filter/fullnameFilter.js</strong>)</li>
+            <li>Note that the vowels in the name are appended to the full name.</li>
+            <li>A <code>&lt;select&gt;</code> element was added to allow you to select a vowel (or none).</li>
+            <li>Note that the <strong>select</strong> and the <strong>ng-repeat</strong> use a model named "vowel". This appears only within the template.</li>
+            <li>The <strong>ng-repeat</strong> was modified to use the custom collection filter. (<strong>/topics/filter/vowelUserFilter.js</strong>)</li>
+        </ol>
+    </article>
+</script>

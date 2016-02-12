@@ -1,0 +1,32 @@
+<div class="routing-config">
+    <article ng-non-bindable>
+        <h3>Routing Configuration (with ngRoute)</h3>
+        <p>
+            When an AngularJS application starts; before directives and controllers referenced by the DOM are created,
+            the Angular framework executes the configuration and run blocks for all of the modules.
+        </p>
+        <p>
+            Configuration blocks are defined by <code>angular.module("myModuleName").config(...);</code>
+            All of the configuration blocks (in all injected modules) are executed.
+            The purpose of configuration blocks are to initialize application settings.
+            Within a config block you can access value recipes and providers,
+            but you do not have access to services since they are constructed during run time.
+        </p>
+        <p>
+            ngRoute requires the application to define routing data using the <strong>$routeProvider</strong> during configuration time.
+            The routing data is a mapping between URIs and their corresponding templates (and controllers).
+        </p>
+        <p>
+            For example, the page you are reading uses this declaration:
+        </p>
+        <code>
+            $routeProvider<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;.when("/routing/Config", {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;templateUrl: "topics/routing/config/config.html"<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;});
+        </code>
+        <p>
+            The source of the routing configuration can be found at <strong>/app/routing/routeConfig.js</strong>
+        </p>
+    </article>
+</div>

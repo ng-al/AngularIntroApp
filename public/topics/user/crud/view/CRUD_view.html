@@ -1,0 +1,20 @@
+<div class="crud-view" ng-controller="CRUD_viewCtrl as vm">
+    <div ng-if="vm.user">
+        <h3>User</h3>
+
+        <form>
+            <label>First Name:</label><span>{{ vm.user.firstName }}</span>&nbsp;&nbsp;
+            <label>Last Name:</label><span>{{ vm.user.lastName }}</span><br/>
+            <label>Email:</label><a href="mailto:{{ vm.user.email }}">{{ vm.user.email }}</a><br/><br/>
+            <label>ID:</label><code>{{ vm.user.uuid }}</code>
+
+            <button button-style="flat" ng-click="vm.Close()">Close</button>
+        </form>
+    </div>
+
+    <div ng-if="!vm.user">
+        <p>
+            No user is selected.
+        </p>
+    </div>
+</div>

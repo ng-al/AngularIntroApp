@@ -1,0 +1,29 @@
+<div class="routing-links">
+    <article ng-non-bindable>
+        <h3>Manual Path Changes</h3>
+        <p>
+            When you type into the browser address bar, you are changing the path.
+            If the new path matches an entry in the routing configuration,
+            then the router will render the new template within the <strong>ng-view</strong> element.
+        </p>
+        <p>
+            Try it. Type "/binding/Notes" into the address bar (after the #).
+        </p>
+
+        <h4>Links</h4>
+        <p>
+            Clicking on an anchor tag also changes the path:
+            <ul>
+                <li><a href="#directives/biz-card">#directives/biz-card</a></li>
+                <li><a href="#filters/Collection">#filters/Collection</a></li>
+                <li><a href="#routing/View">#routing/View</a></li>
+                <li><a href="#routing/Dynamic">#routing/Dynamic</a></li>
+            </ul>
+        </p>
+        <p>
+            Notice that the URIs in the anchor tags begin with a '#'.
+            ngRoute supports two types of routing: <strong>hashbang</strong> and <strong>HTML5</strong> modes:
+            <a class="inline" href="https://docs.angularjs.org/guide/$location">https://docs.angularjs.org/guide/$location</a>
+        </p>
+    </article>
+</div>

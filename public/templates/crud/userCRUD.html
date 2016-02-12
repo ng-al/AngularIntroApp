@@ -1,6 +1,0 @@
-<div ng-controller="userCRUDCtrl as vm">
-    <div ng-if="vm.currentMode === vm.Mode.LIST" ng-include="'/templates/crud/userCRUD_list.html'"></div>
-    <div ng-if="vm.currentMode === vm.Mode.VIEW" ng-include="'/templates/crud/userCRUD_view.html'"></div>
-    <div ng-if="vm.currentMode === vm.Mode.CREATE || vm.currentMode === vm.Mode.UPDATE" ng-include="'/templates/crud/userCRUD_form.html'"></div>
-    <div ng-if="vm.currentMode === vm.Mode.DELETE" ng-include="'/templates/crud/userCRUD_delete.html'"></div>
-</div>

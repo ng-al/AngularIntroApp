@@ -1,0 +1,9 @@
+<div class="left-nav">
+    <ul>
+        <li ng-repeat="item in routing.items">
+            <a class="{{ routing.isNavSelected(item) ? 'selected' : null }}" ng-click="routing.onNavClick(item)">
+                {{ item.text }}
+            </a>
+        </li>
+    </ul>
+</div>

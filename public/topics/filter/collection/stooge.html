@@ -1,0 +1,32 @@
+<div class="filter-collection" ng-controller="stoogeCtrl as vm">
+    <img src="/images/stooges.jpg">
+    
+    <form>
+        <label>Any Field:</label><input type="text" ng-model="vm.search.$"><br />
+        <label>Name:</label><input type="text" ng-model="vm.search.name"><br />
+        <label>City:</label><input type="text" ng-model="vm.search.city"><br />
+        <label>Born:</label><input type="text" ng-model="vm.search.born"><br />
+        <label>Died:</label><input type="text" ng-model="vm.search.died"><br />
+
+        <input id="exact-match" type="checkbox" ng-model="vm.exactMatch"><label for="exact-match">Exact Match</label>
+    </form>
+
+    <h3><code>vm.stooges | filter : {{ vm.getFilterText() }} : {{ vm.exactMatch }}</code></h3>
+
+    <table>
+        <thead>
+            <th>Full Name</th>
+            <th>City</th>
+            <th>Born</th>
+            <th>Died</th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="stooge in (vm.stooges | filter : vm.search : vm.exactMatch)">
+            <td>{{ stooge.name }}</td>
+            <td>{{ stooge.city }}</td>
+            <td>{{ stooge.born }}</td>
+            <td>{{ stooge.died }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

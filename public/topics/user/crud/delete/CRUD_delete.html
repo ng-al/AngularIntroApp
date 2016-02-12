@@ -1,0 +1,17 @@
+<div class="crud-delete" ng-controller="CRUD_deleteCtrl as vm">
+    <div ng-if="vm.user">
+        <h3>Delete this User?</h3>
+
+        <div biz-card="vm.user"></div>
+        <div style="clear: both"></div>
+
+        <button button-style="flat" ng-click="vm.No()">No</button>
+        <button button-style="flat" ng-click="vm.Yes()">Yes</button>
+    </div>
+
+    <div ng-if="!vm.user">
+        <p>
+            No user is selected.
+        </p>
+    </div>
+</div>

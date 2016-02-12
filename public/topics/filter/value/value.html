@@ -1,0 +1,62 @@
+<div class="filter-value" ng-controller="filterCtrl as vm">
+    <h3>Currency Filter</h3>
+    <input type="text" ng-model="vm.currencyValue" ng-change="vm.updateCurrency()">
+    <select ng-model="vm.currencySymbol" ng-change="vm.updateCurrency()">
+        <option>$</option>
+        <option>€</option>
+        <option>£</option>
+        <option>¥</option>
+    </select>
+    <select ng-model="vm.currencyFractionSize" ng-change="vm.updateCurrency()">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+    <code>
+        <strong ng-non-bindable=>{{</strong>
+        {{ vm.currencyValue }} | currency : '{{ vm.currencySymbol }}' : {{ vm.currencyFractionSize }}
+        <strong ng-non-bindable=>}}</strong>
+        <span>&#10145; {{ vm.currencyResult }}</span>
+    </code>
+
+    <h3>Date Filter</h3>
+    <input type="text" ng-model="vm.dateValue" ng-change="vm.updateDate()">
+    <select ng-model="vm.dateFormat" ng-change="vm.updateDate()">
+        <option>fullDate</option>
+        <option>longDate</option>
+        <option>medium</option>
+        <option>mediumDate</option>
+        <option>mediumTime</option>
+        <option>short</option>
+        <option>shortDate</option>
+        <option>shortTime</option>
+    </select>
+    <code>
+        <strong ng-non-bindable=>{{</strong>
+        {{ vm.dateValue }} | date : "{{ vm.dateFormat }}"
+        <strong ng-non-bindable=>}}</strong>
+        <span>&#10145; {{ vm.dateResult }}</span>
+    </code>
+
+    <h3>Number Filter</h3>
+    <input type="text" ng-model="vm.numberValue" ng-change="vm.updateNumber()">
+    <select ng-model="vm.numberFractionSize" ng-change="vm.updateNumber()">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+    </select>
+    <code>
+        <strong ng-non-bindable=>{{</strong>
+        {{ vm.numberValue }} | number : {{ vm.numberFractionSize }}
+        <strong ng-non-bindable=>}}</strong>
+        <span>&#10145; {{ vm.numberResult }}</span>
+    </code>
+</div>

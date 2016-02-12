@@ -1,0 +1,26 @@
+<div class="directive-apSplatter">
+    <form name="apForm" novalidate>
+        <label for="ap-1">Field One:</label>
+        <input id="ap-1" name="field-one" type="text" ng-model="fieldOne">
+
+        <label for="ap-2">Field Two:</label>
+        <input id="ap-2" name="field-two" type="text" required ng-model="fieldTwo">
+
+        <button type="submit" button-style="flat">Submit</button>
+    </form>
+
+    <div ng-include="'/docs/directive/ap-splatter.doc'"></div>
+</div>
+
+
+<script type="text/ng-template" id="/docs/directive/ap-splatter.doc">
+    <article class="on-page" ng-non-bindable>
+        <h3>Under the Covers</h3>
+        <ol>
+            <li>In this <strong>&lt;form&gt;</strong>, the only difference between the two input controls is that the second has the <strong>required</strong> attribute.</li>
+            <li>However, since the directive is named "required", it executes.</li>
+            <li>The directive does not modify the element to which it is attached; it modifies the associated <strong>&lt;label&gt;</strong> element.</li>
+            <li>Note that when you submit with no value, the directive turns the asterisk red.</li>
+        </ol>
+    </article>
+</script>

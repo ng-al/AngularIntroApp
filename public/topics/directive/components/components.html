@@ -1,0 +1,28 @@
+<div class="directive-components">
+    <h3><code>&lt;button button-style="flat"&gt;Flat Button&lt;/button&gt;</code></h3>
+    <button button-style="flat">Flat Button</button>
+
+    <h3><code>&lt;button button-style="flat" disabled&gt;Disabled&lt;/button&gt;</code></h3>
+    <button button-style="flat" disabled>Flat Button</button>
+
+    <h3><code>&lt;button button-style="raised"&gt;Raised Button&lt;/button&gt;</code></h3>
+    <button button-style="raised">Raised Button</button>
+
+    <h3><code>&lt;button button-style="round"&gt;Round Button&lt;/button&gt;</code></h3>
+    <button button-style="round">Round Button</button>
+
+    <div ng-include="'/docs/directive/components.doc'"></div>
+</div>
+
+
+<script type="text/ng-template" id="/docs/directive/components.doc">
+    <article class="on-page" ng-non-bindable>
+        <h3>Under the Covers</h3>
+        <ol>
+            <li>A component is a self-contained directive that contains a template and a controller.</li>
+            <li>The <strong>button-style</strong> directive contains the boiler-plate for developing components.</li>
+            <li>Note that the directive defines it's own CSS (and inserts it dynamically into the DOM.</li>
+            <li>A variety of CSS effects are included for your amusement.</li>
+        </ol>
+    </article>
+</script>

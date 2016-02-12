@@ -1,0 +1,34 @@
+<div class="routing-view">
+    <article ng-non-bindable>
+        <h3>ngRoute Views</h3>
+        <p>
+            When the URI changes:
+            <ul>
+                <li>By typing in the browser's address bar, or</li>
+                <li>Clicking on a link, or</li>
+                <li>programmatically changing the path using the <strong>$location</strong> service</li>
+            </ul>
+        </p>
+        <p>
+            The router attempts to find the URI in the set of routes defined during configuration.
+            If it finds the URI, it will render the template.
+        </p>
+        <p>
+            Where does the router insert the template?
+            That is the purpose of the <strong>ng-view</strong> directive.
+        </p>
+        <p>
+            If you examine the index page (<strong>/server/views/index.ejs</strong>) you will see a line like this:
+        </p>
+        <p>
+            <code>&lt;div ng-view&gt;&lt;div&gt;</code> (On line 55)
+        </p>
+        <p>
+            This marks the place in the DOM where the router will render the templates after a change in the path.
+        </p>
+        <p>
+            Note that ngRoute only supports a single <strong>ng-view</strong> directive.
+            The other routers support multiple view insertion points.
+        </p>
+    </article>
+</div>

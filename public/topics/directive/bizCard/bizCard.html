@@ -1,0 +1,24 @@
+<div class="directive-bizCard" ng-controller="listUserCtrl as vm">
+    <h3 ng-non-bindable><code>&lt;div biz-card="user"&gt;&lt;/div&gt;</code></h3>
+    <br />
+
+    <div ng-repeat="user in vm.users">
+        <div biz-card="user"></div>
+    </div>
+
+
+    <div ng-include="'/docs/directive/biz-card.doc'"></div>
+</div>
+
+
+<script type="text/ng-template" id="/docs/directive/biz-card.doc">
+    <article class="on-page" ng-non-bindable>
+        <h3>Under the Covers</h3>
+        <ol>
+            <li>Since the directive declares <code>restrict: 'A'</code>, when AngularJS encounters the <code>biz-card="user"</code> the directive is executed.</li>
+            <li>The user object is bound to the directives private scope.  The equals sign declares a two-way binding.</li>
+            <li>The template in the directive completely replaces the div that invoked the directive.</li>
+            <li>Note that the template contains AngularJS intrinsic directives; these are applied against the isolated scope.</li>
+        </ol>
+    </article>
+</script>

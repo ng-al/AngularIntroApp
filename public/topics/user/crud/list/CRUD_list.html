@@ -1,0 +1,13 @@
+<div class="crud-list" ng-controller="CRUD_listCtrl as vm">
+    <h3>Users</h3>
+
+    <button class="create-button" button-style="flat" ng-click="vm.addUser()">Add New User</button>
+
+    <div ng-repeat="user in vm.users">
+        <span>{{ user.lastName }}, {{ user.firstName }}</span>
+        <button button-style="flat" ng-click="vm.viewUser(user.uuid)">View</button>
+        <button button-style="flat" ng-click="vm.editUser(user.uuid)">Edit</button>
+        <button button-style="flat" ng-click="vm.deleteUser(user.uuid)">Delete</button>
+        <hr>
+    </div>
+</div>

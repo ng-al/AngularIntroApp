@@ -7,32 +7,42 @@
       <script src="/lib/angular-route/angular-route.js"></script>
       <script src="/lib/apSplatter/apSplatter.js"></script>
 
-      <script src="/scripts/app/IntroApp.js"></script>
-      <script src="/scripts/app/IntroRoute.js"></script>
-      <script src="/scripts/app/navCtrl.js"></script>
+      <script src="/app/IntroApp.js"></script>
+      <script src="/app/routing/routeConfig.js"></script>
+      <script src="/app/routing/routeCtrl.js"></script>
     
-      <script src="/scripts/user/userService.js"></script>
-      <script src="/scripts/user/fullNameFilter.js"></script>
-      <script src="/scripts/user/vowelUserFilter.js"></script>
-      <script src="/scripts/user/bizCardDirective.js"></script>
-      <script src="/scripts/user/emailUniqueValidator.js"></script>
-      <script src="/scripts/user/listUserCtrl.js"></script>
+      <script src="/topics/directive/components/buttonStyleComponent.js"></script>
+      <script src="/topics/directive/bizCard/bizCardDirective.js"></script>
 
-      <script src="/scripts/user/crud/userCRUDCtrl.js"></script>
-      <script src="/scripts/user/crud/userCRUD_deleteCtrl.js"></script>
-      <script src="/scripts/user/crud/userCRUD_formCtrl.js"></script>
-      <script src="/scripts/user/crud/userCRUD_viewCtrl.js"></script>
+      <script src="/topics/filter/value/filterCtrl.js"></script>
+      <script src="/topics/filter/collection/stoogeCtrl.js"></script>
+      <script src="/topics/filter/custom/fullNameFilter.js"></script>
+      <script src="/topics/filter/custom/vowelUserFilter.js"></script>
 
-      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script src="/topics/routing/dynamic/properUriValidator.js"></script>
+      <script src="/topics/routing/dynamic/dynamicCtrl.js"></script>
+
+      <script src="/topics/user/userService.js"></script>
+      <script src="/topics/user/emailUniqueValidator.js"></script>
+      <script src="/topics/user/crud/list/CRUD_listCtrl.js"></script>
+      <script src="/topics/user/crud/view/CRUD_viewCtrl.js"></script>
+      <script src="/topics/user/crud/edit/CRUD_editCtrl.js"></script>
+      <script src="/topics/user/crud/delete/CRUD_deleteCtrl.js"></script>
+      <script src="/topics/user/crud/add/CRUD_addCtrl.js"></script>
+      <script src="/topics/user/list/listUserCtrl.js"></script>
+
+      <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
-  <body ng-app="IntroApp">
+  <body ng-app="IntroApp" ng-controller="routeCtrl as routing">
   <header>
-      <center class="title">
+      <div class="app-title" ng-click="routing.goToWelcome()">
           <span>Introduction to</span>
           <img src="/images/AngularJS_logo.svg.png">
-      </center>
-      <div ng-include="'/templates/nav.html'"></div>
+      </div>
+      <div class="section-title">
+          <span>{{routing.getSectionTitle()}}</span>
+      </div>
       <div class="author">
           <div>Alvin Pivowar</div>
           <a href="http://www.ng-al.com">www.ng-al.com</a><br />
@@ -41,7 +51,12 @@
       </div>
   </header>
 
-    <hr>
-    <div class="view" ng-view></div>
+  <div class="main-layout">
+    <div ng-include="'/app/routing/leftNav.html'"></div>
+    <div>
+        <div ng-include="'/app/routing/tabs.html'"></div>
+        <div class="topic" ng-view></div>
+    </div>
+  </div>
   </body>
 </html>

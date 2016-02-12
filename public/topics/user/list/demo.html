@@ -1,0 +1,39 @@
+<div class="list-demo" ng-controller="listUserCtrl as vm">
+    <h3>GET /api/users</h3>
+
+    <br />
+    <table>
+        <thead>
+            <th>uuid</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in vm.users">
+            <td>{{ user.uuid }}</td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div ng-include="'/docs/list/demo.doc'"></div>
+</div>
+
+
+<script type="text/ng-template" id="/docs/list/demo.doc">
+    <article class="on-page" ng-non-bindable>
+        <h3>Under the Covers</h3>
+        <ol>
+            <li>When the template is rendered:</li>
+            <li>The <strong>ng-controller</strong> attribute (on the template) causes the <strong>listUserCtrl</strong> to be created and executed.</li>
+            <li>The controller injects the <strong>userService</strong>, AngularJS ensures that the service is available.</li>
+            <li>The controller calls the <strong>getAllUsers()</strong> method in the service.</li>
+            <li>The service makes a back-end HTTP call (via <strong>$http</strong>) and returns a promise to the controller.</li>
+            <li>When the promise is successfully resolved, the controller sets the <strong>vm.users</strong> property with the results.</li>
+            <li>AngularJS renders the DOM based on the model change.</li>
+        </ol>
+    </article>
+</script>

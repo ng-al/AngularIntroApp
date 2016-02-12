@@ -1,0 +1,29 @@
+<div class="binding-repeat">
+    <label for="repeat-csl">Enter a comma, separated list:&nbsp;</label>
+    <input type="text" id="repeat-csl" ng-model="repeat_list">
+
+    <br />
+    <br />
+    <div ng-repeat="item in repeat_list.split(',') track by $index" ng-show="repeat_list">
+        <div class="checkbox-row" ng-show="item.trim()">
+            <input id="{{$index}}" type="checkbox" />
+            <label for="{{$index}}">{{ item.trim() }}</label>
+        </div>
+    </div>
+
+    <div ng-include="'/docs/binding/repeat.doc'"></div>
+</div>
+
+
+<script type="text/ng-template" id="/docs/binding/repeat.doc">
+    <article class="on-page" ng-non-bindable>
+        <h3>Under the Covers</h3>
+        <ol>
+            <li>This page uses <strong>no</strong> Javascript.</li>
+            <li>When the textbox is empty, the array of checkboxes is hidden.</li>
+            <li>When the textbox contains a list, it is broken into parts.</li>
+            <li>Each (non-blank) part generates a checkbox item.</li>
+            <li>AngularJS modifies the DOM from the data.</li>
+        </ol>
+    </article>
+</script>

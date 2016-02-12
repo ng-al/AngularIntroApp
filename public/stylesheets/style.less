@@ -1,168 +1,410 @@
+@accent: #ffc200;
+@border: darkgrey;
+@dark-accent: darken(@accent, 10%);
+@font: 1em Arial, helvetica, sans-serif;
+@font-bold: "Arial Black", Gadget, sans-serif;
+@font-monospace: "Lucida Console", Monaco, monospace;
+@primary: lightgreen;
+@primary-background: white;
+@secondary-background: #f7f7f7;
+
+
 article {
   clear: both;
-  margin-top: 30px;
   width: 800px;
-  h3 {
-    margin-top: 30px;
-  }
-  h3 + ul {
-    margin-top: -14px;
-  }
+
   a {
+    color: @dark-accent;
     display: block;
     margin-top: 10px;
+
+    &.inline {
+      display: inline-block;
+      margin-top: 0;
+    }
+  }
+
+  h3 + ol, h3 + ul {
+    margin-top: -14px;
+  }
+
+  ol {
+    li {
+      margin-bottom: .3em;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-left: 1em;
+      white-space: nowrap;
+
+      span.column {
+        display: inline-block;
+        margin-right: 10px;
+        width: 440px;
+      }
+
+      a {
+        display: inline-block;
+        margin: 0;
+      }
+    }
+
+    li:before {
+      content: "\25a0\00a0\00a0\00a0";
+      color: @accent;
+    }
+  }
+
+  &.on-page {
+    padding-top: 40px;
   }
 }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: @secondary-background;
+  font: @font;
+}
+
+.button-style:hover {
+  background-color: @primary !important;
+}
+
+code {
+  font-family: @font-monospace;
+}
+
+header {
+  background-color: @primary;
+  padding-bottom: 10px;
+  height: 80px;
+  width: 100%;
+
+  .app-title {
+    float: left;
+    padding-left: 20px;
+
+    span {
+      display: inline-block;
+      font-size: 30px;
+      margin-right: 20px;
+      position: relative;
+    }
+
+    img {
+      display: inline-block;
+      height: 50px;
+      position: relative;
+      top: 16px;
+      width: 200px;
+    }
+  }
+
+  .section-title {
+    float: left;
+    font-size: 2em;
+    margin-left: 40px;
+    position: relative;
+    top: 24px;
+  }
+
+  .author {
+    display: inline-block;
+    float: right;
+    margin-top: 10px;
+    padding-right: 10px;
+  }
+}
+
+input[type=checkbox] {
+  display: none;
+
+  & + label:before {
+    color: @border;
+    content: "\25a1";
+    display: inline-block;
+    font-size: 2em;
+    padding: 0;
+    margin: 0 .2em -10px 0;
+    position: relative;
+    top: 2px;
+  }
+
+  & + label {
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  &:checked + label:before {
+    color: @accent;
+    content: "\25a0";
+    display: inline-block;
+  }
 }
 
 label {
   display: inline-block;
-  font-weight: bold;
+  font-weight: bolder;
   margin-right: 10px;
 }
 
 table {
-  border: solid 1px black;
+  border: solid 1px @border;
   border-collapse: collapse;
 
   th {
-    border: solid 1px black;
+    border: solid 1px @border;
     padding: 8px;
-    background-color: gold;
+    background-color: @primary;
   }
 
-  tr:nth-child(even) {background: lightgrey}
-  tr:nth-child(odd) {background: white}
+  tr:nth-child(even) {background: @secondary-background}
+  tr:nth-child(odd) {background: @primary-background}
 
   td {
-    border: solid 1px black;
+    border: solid 1px @border;
     padding: 8px;
   }
 }
 
-.title {
-  span {
-    display: inline-block;
-    font-size: 30px;
-    margin-right: 20px;
-    position: relative;
-    top: -15px;
-  }
-  img {
-    height: 50px;
-    width: 200px;
-  }
-}
-
-.nav {
-  ul {
-    list-style: none;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-  }
-
-  li {
-    line-height: 40px;
-    height: 40px;
-  }
-
-  a {
-    border: 1px solid black;
-    color: black;
-    display: inline-block;
-    font-size: 20px;
-    margin-right: 20px;
-    padding: 4px;
-    text-decoration: none;
-    transition: .3s background-color;
-  }
-
-  a:hover {
-    background-color: silver;
-  }
-
-  a.active {
-    background-color: gold;
-    cursor: default;
-  }
-}
-
-.author {
-  display: inline-block;
-  float: right;
-  margin-top: -64px;
-}
-
-.view {
-  padding: 30px;
-}
-
-.crud-list {
-  .create-button {
-    display:inline-block;
-    margin-left: 304px;
-    margin-bottom: 30px;
-    width: 146px;
-  }
-  .list {
-    width: 450px;
-    span {
-      display: inline-block;;
-      width: 300px;
-    }
+.binding-repeat {
+  .checkbox-row {
+    height: 1em;
+    margin-bottom: 10px;
+    padding-left: 20px;
   }
 }
 
 .crud-delete {
+  width: 400px;
+
   button {
-    display: inline-block;
+    float: right;
+  }
+
+  button:nth-of-type(2) {
+    background-color: red;
     margin-right: 10px;
-    margin-top: 200px;
+  }
+}
+
+.crud-list {
+  h3 + button {
+    background-color: @primary;
+    display: inline-block;
+    position: relative;
+    left: 200px;
+  }
+
+  button + div {
+    padding-top: 30px;
+  }
+
+  div {
+    width: 400px;
+
+    button:nth-of-type(3) {
+      background-color: red;
+    }
+  }
+
+  div > span {
+    display: inline-block;
+    width: 200px;
+  }
+
+  h3 {
+    display: inline-block;
   }
 }
 
 .crud-form {
-    form {
-      padding-top: 20px;
-      label {
-        width: 100px;
-      }
-      input[type=text],input[type=email] {
-        width: 228px;
-      }
-      a {
-        text-decoration: none;
-        code {
-          font-size: smaller;
+  button {
+    display: block;
+    float: right;
+    margin: 20px 10px;
+  }
 
-        }
-      }
-      div[ng-message] {
-        color: red;
-        margin-left: 114px;
-      }
-      button:first-of-type {
-        display: inline-block;
-        margin-left: 400px;
-      }
-    }
+  button:last-child {
+    background-color: @primary;
+  }
+
+  form {
+    width: 550px;
+  }
+
+  input[type=email] {
+    width: 200px;
+  }
 }
 
 .crud-view {
+  button {
+    display: block;
+    float: right;
+    margin-top: 20px;
+  }
+
   form {
-    code {
-      font-size: smaller;
+    width: 400px;
+  }
+}
+
+.directive-apSplatter {
+  button {
+    clear: both;
+    float: left;
+    margin-left: 100px;
+  }
+
+  input {
+    float: left;
+  }
+
+  label {
+    clear: both;
+    float: left;
+    margin-bottom: 1em;
+    width: 100px;
+  }
+}
+
+.filter-collection {
+  img {
+    display: block;
+    height: 200px;
+    margin: -30px 0 0 400px;
+    position: absolute;
+    width: 200px;
+  }
+
+  label {
+    width: 80px;
+  }
+
+  label:last-child {
+    width: auto;
+  }
+}
+
+.filter-custom {
+  form {
+    margin-bottom: 20px;
+  }
+}
+
+.filter-value {
+  code {
+    display: block;
+    margin-top: 8px;
+    padding-bottom: 10px;
+  }
+
+  h3 {
+    margin-bottom: 6px;
+  }
+
+  input {
+    width: 200px;
+  }
+}
+
+.left-nav {
+  background-color: @primary-background;
+  height: auto;
+  position: relative;
+  width: 140px;
+  top: 0px;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    a {
+      border-bottom: 1px solid @border;
+      color: black;
+      display: inline-block;
+      font-size: larger;
+      padding: 4px 10px 4px 10px;
+      text-decoration: none;
+      transition: .4s background-color;
+      width: 120px;
+
+      &:hover {
+        background-color: @primary;
+      }
+
+      &.selected {
+        background-color: @accent;
+        cursor: default;
+      }
+
     }
   }
-  button {
-    display: inline-block;
-    margin-left: 400px;
-    margin-top: 30px;
+}
+
+.main-layout {
+  border-top: 2px solid black;
+  height: 600px;
+
+  & > div {
+    float: left;
+    height: 100%;
+    margin: 0;
+    padding: 0;
   }
+
+  & > div:last-child {
+    border-left: 1px solid @border;
+    height: auto;
+    min-height: 400px;
+    padding-left: 20px;
+    width: auto;
+  }
+}
+
+.routing-dynamic {
+  h4 + ul {
+    margin-top: -15px;
+  }
+}
+
+.tabs {
+  height: 20px;
+  margin: 4px 0 40px 0;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      font-family: @font-bold;
+      display: inline-block;
+      margin-right: 10px;
+      padding: 0 1em 0 .5em;
+      transition: .4s background-color;
+
+      &.selected {
+        border-bottom: 4px solid @accent;
+      }
+
+      &:hover {
+        background-color: @accent;
+        border-color: @primary;
+      }
+    }
+  }
+}
+
+.topic {
+  width: 800px;
 }
 
 .user-cards {
@@ -173,6 +415,8 @@ table {
     left: 240px;
   }
 }
+
+// Used by directive
 
 .biz-card {
   background-color: beige;
@@ -211,7 +455,7 @@ table {
     font-family: monospace;
     font-size: smaller;
     position: relative;
-    top: 66px;
+    top: 60px;
     left: 80px;
   }
 }

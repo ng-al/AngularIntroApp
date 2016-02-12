@@ -1,0 +1,50 @@
+<div class="routing-overview">
+    <article ng-non-bindable>
+        <h3>AngularJS Routing</h3>
+        <p>
+            One of the primary goals of the single-page approach is to provide the user with a more fluid, “desktop-like” experience.
+            To that end, single-page apps attempt to reduce the total number of pages that a user must load down to one, hence their name.
+            Whereas a traditional web application requires full page reloads (along with the accompanying URL change) as the user navigates from page to page,
+            single-age apps shuttle all of this information over AJAX in the background.
+        </p>
+
+        <p>
+            However, if the user’s URL isn’t going to change as they navigate around our app, how do we keep track of their location?
+            This is the role of the router module in an AngularJS application.
+            Currently, there are three routers to choose from:
+            <ul>
+                <li>angular-route</li>
+                <li>angular-ui-router</li>
+                <li>angular-new-router</li>
+            </ul>
+        </p>
+
+        <h4>angular-route</h4>
+        <p>
+            This is the router provided by the ngRoute module.  It is the routing engine used within this application.
+            Refer to the accompanying tabs to see how it works.
+        </p>
+
+        <h4>angular-ui-router</h4>
+        <p>
+            UI-Router applications are modeled as a hierarchical tree of states.
+            UI-Router provides a state machine to manage the transitions between those application states in a transaction-like manner.
+        </p>
+        <p>
+            For more information: <a href="https://github.com/angular-ui/ui-router">https://github.com/angular-ui/ui-router</a>
+        </p>
+
+        <h4>angular-new-router</h4>
+        <p>
+            Javascript (and Javascript frameworks) are moving to a component model.
+            With the new router, instead of routing to URIs like in ngRoute, or states in UI router, you navigate to components.
+            Components can be arranged hierarchically, and each component manages it's own routing.
+        </p>
+        <p>
+            This will be the standard router in AngularJS 2.0.
+        </p>
+        <p>
+            For more information: <a href="https://github.com/angular/router">https://github.com/angular/router</a>
+        </p>
+    </article>
+</div>
