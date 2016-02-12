@@ -1,7 +1,10 @@
 {
   "name": "AngularIntroApp",
   "description": "Overview of AngularJS",
-  "main": ["node server", "server/views/index.ejs"],
+  "main": [
+    "node server",
+    "server/views/index.ejs"
+  ],
   "authors": [
     "Alvin Pivowar alvin@ng-al.com"
   ],
@@ -15,8 +18,11 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "^1.4.5",
-    "angular-messages": "^1.4.5",
-    "angular-route": "^1.4.5"
+    "angular": "^1.5.0",
+    "angular-messages": "^1.5.0",
+    "angular-route": "^1.5.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.0"
   }
 }
