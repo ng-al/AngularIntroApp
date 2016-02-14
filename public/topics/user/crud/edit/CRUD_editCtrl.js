@@ -6,8 +6,8 @@
     angular
         .module("IntroApp")
         .controller("CRUD_editCtrl",
-        ["$location", "$routeParams", "$timeout", "userService",
-        function($location, $routeParams, $timeout, userService){
+        ["$location", "$routeParams", "userService",
+        function($location, $routeParams, userService){
             var vm = this;
             vm.user = null;
 
