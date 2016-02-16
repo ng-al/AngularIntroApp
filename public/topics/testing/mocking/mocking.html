@@ -1,0 +1,132 @@
+<div class="testing-mocking">
+    <article ng-non-bindable>
+        <h3>Mocking</h3>
+        <p>
+            The purpose of a unit test is to test the functionality of code in isolation.
+            Isolating the system under test can be challenging at times as dependencies may come from
+            different sets of sources.
+        </p>
+        <p>
+            Mocking is difficult in non-statically typed languages, as it is not easy to understand structure of the object to be mocked.
+            However, Javascript allows the flexibility of mocking only part of an object.
+        </p>
+        <p>
+            One of the primary goals of AngularJS is testability.
+            AngularJS comes with the ngMock module which simplifies writing unit tests.
+            This module consists of mocks around a set of AngularJS services ($controller, $httpBackend, $timeout, etc.).
+            These <em>mocks</em> add functionality specific to testing.
+        </p>
+
+        <h4>Mocking Modules</h4>
+        <p>
+            AngularJS only provides a mocking module for some of the core functionality.
+            What if you wanted to create your own mocking library?
+            For example, suppose you mocked the <strong>ngRoute</strong> module with your own <strong>ngRouteMock</strong>
+            module:
+        </p>
+        <code>
+            beforeEach(function() {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;module("ngRoute", ["ngRouteMock]);<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;module("IntroApp");<br />
+            });
+        </code>
+        <p>
+            The module() statement on the first line creates an <strong>ngRoute</strong> module using the recipes in the mocking module.
+            When the second module() statement is encountered, AngularJS loads the <strong>IntroApp</strong>;
+            however, your mocked library will be used.
+        </p>
+        <p>
+            You can also use this technique to effectively "remove" modules not needed during testing:
+        </p>
+        <code>
+            beforeEach(function() {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;module("apSplatter", []);<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;module("IntroApp");<br />
+            });
+        </code>
+        <p>
+            Here, we will no longer use any of the recipes in apSplatter.
+        </p>
+
+        <h4>Mocking Services</h4>
+        <p>
+            You can mock services in three ways:
+        </p>
+        <ol>
+            <li>Mocking with a simple object (duck typing.)</li>
+            <li>Mocking with a function.</li>
+            <li>Mocking with a recipe.</li>
+        </ol>
+
+        <h4>Mocking Services with Simple Objects</h4>
+        <p>
+            In the <strong>test/controllers/CRUD_addCtrl_tests.js</strong> it was necessary to mock the controller's use
+            of <strong>$routeParams</strong>. This is the one line in the controller to be mocked:
+        </p>
+        <code>
+            userService.getUser($routeParams.uuid).then(function(data) {
+        </code>
+        <p>
+            We don't need to create a complicated service for that; all we need to do is provide that one property.
+            Look at the buildController() function in the test:
+        </p>
+        <code>
+            function buildController(uuid) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;var $routeParamsMock = { uuid: uuid };<br /><br />
+
+            &nbsp;&nbsp;&nbsp;&nbsp;controller = $controller("CRUD_editCtrl", {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$location: $locationMock,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$routeParams: $routeParamsMock,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;userService: userServiceMock<br />
+            });<br />
+        </code>
+        <p>
+            On the first line we define a very simple object that will function as our mocked service.
+            We inject it into the controller using the <strong>$controller</strong> service.
+        </p>
+
+        <h4>Mocking with Functions</h4>
+        <p>
+            If you created a Javascript function that mimics a service, or a function that when run returns an object
+            that mocks a factory, you can easily substitute your object for the real one in the beforeEach() config group:
+        </p>
+        <code>
+            var myMockService = function() {...};<br /><br />
+
+            beforeEach(function() {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;module(function($provide) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$provide.service("real service name", myMockService)<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;});<br />
+            });
+        </code>
+
+        <h4>Mocking with Recipes</h4>
+        <p>
+            If you have defined a mocking module with AngularJS recipes, then (since you cannot inject services at config time),
+            a little trickier to substitute the real for the mocked service.
+            You have to inject the provider for the service, and build the service yourself:
+        </p>
+        <code>
+            // Assume a recipe named "MyMockedFactory"<br /><br />
+            beforeEach(function() {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;module(function($injector, $provide) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var myMockedProvider = $injector.get("myMockedFactoryProvider);<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var myMockedFactoryFn = myMockedProvider.$get;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var myMockedFactory = myMockedFactoryFn();<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$provide.value("real service name", myMockedFactory);<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;});<br />
+            });
+        </code>
+        <p>
+            Note: Since we completely built the factory object, we can use the value recipe to register the singleton object.
+        </p>
+
+        <h4>Tests that use Mocking</h4>
+        <ul>
+            <li><span class="column"><strong>test/controllers/CRUD_addCtrl_tests.js</strong></span><span>Mocked $location</span></li>
+            <li><span class="column"><strong>test/controllers/CRUD_editCtrl_tests.js</strong></span><span>Mocked $location, $routeParams, userService</span></li>
+            <li><span class="column"><strong>test/filters/vowelUserFilter_tests.js</strong></span><span>Mocked userService</span></li>
+            <li><span class="column"><strong>test/validators/emailUniqueValidator_tests.js</strong></span><span>Mocked userService</span></li>
+        </ul>
+    </article>
+</div>

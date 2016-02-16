@@ -1,0 +1,49 @@
+<div class="tsesting-controllers">
+    <article ng-non-bindable>
+        <h3>Unit Testing Controllers</h3>
+        <p>
+            Testing a controller is straightforward:
+        </p>
+        <ol>
+            <li>Build the controller.</li>
+            <li>Test the initialization.</li>
+            <li>Test the public API (as defined via the model.)</li>
+        </ol>
+
+        <h4>Build the Controller</h4>
+        <p>
+            AngularJS provides a service, <strong>$controller</strong> that is used to instantiate a controller.
+            One nice thing, is that the construction call (optionally) takes an object that directs <strong>$controller</strong>
+            exactly what should be injected into the controller.
+            In this way, you have fine-grain control over all of the injectables.
+        </p>
+
+        <h4>Testing "controller as" Controllers</h4>
+        <p>
+            Controllers using this pattern typically do not inject <strong>$scope</strong>;
+            instead building the model on the controller instance.
+            Properties and functions of the model will be found on the instance of the controller.
+        </p>
+        <code>
+            var theController = $controller("myController, {...});<br />
+            var aModelProperty = theController.modelProperty;
+        </code>
+
+        <h4>Testing "old-style" Controllers</h4>
+        <p>
+            These type of controllers build the model on the injected scope.
+            To test this type of controller, you must construct a scope object and inject it into the controller.
+        </p>
+        <code>
+            var scope = $rootScope.$new(true);<br />
+            var theController = $controller("myController, { $scope: scope, ...});<br />
+            var aModelProperty = scope.modelProperty;
+        </code>
+
+        <h4>Examples</h4>
+        <ul>
+            <li><span class="column"><strong>/test/controllers/CRUD_addCtrl_tests.js</strong></span><span>Uses real userService</span></li>
+            <li><span class="column"><strong>/test/controllers/CRUD_editCtrl_tests.js</strong></span><span>Uses userServiceMock</span></li>
+        </ul>
+    </article>
+</div>

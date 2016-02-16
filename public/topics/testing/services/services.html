@@ -1,0 +1,42 @@
+<div class="testing-services">
+    <article ng-non-bindable>
+        <h3>Unit Testing Services</h3>
+        <p>
+            Getting the service (to test) is easy: You just inject it.
+            However, to properly unit test a service, you must isolate it from the dependent services it injects.
+            This is done via <strong>$httpBackend</strong> and mocking <a class="inline" href="#/testing/Mocking">Testing/Mocking</a>.
+        </p>
+
+        <h4>When not to Test</h4>
+        <p>
+            If all your service does is proxy server-side REST requests via <strong>$http</strong>, then there is <strong>NO</strong>
+            need to test that service at all since there is no logic within the service to test.
+            Services that contain logic (helper functions, utilities, etc.) should be tested.
+        </p>
+        <p>
+            The unit test that is provided in this sample app is an example of a test that should not have been written.
+            It is only here to demonstrate mocking a REST API via <strong>$httpBackend</strong>.
+        </p>
+
+        <h4>$httpBackend</h4>
+        <p>
+            When an Angular application needs some data from a server, it calls the <strong>$http</strong> service,
+            which sends the request to a real server via the <strong>$httpBackend</strong> proxy.
+            With dependency injection, you use the  <strong>$httpBackend</strong> service
+            (from ngMock which has the same API as <strong>$httpBackend</strong>)
+            and use it to verify the requests and respond with test data without making actual HTTP requests.
+        </p>
+        <p>
+            <a href="https://docs.angularjs.org/api/ngMock/service/$httpBackend">$httpBackend Documentation</a>
+        </p>
+        <p>
+
+        </p>
+
+        <h4>Example</h4>
+        <ul>
+            <li><strong>/test/services/userService_tests.js</strong></li>
+        </ul>
+
+    </article>
+</div>

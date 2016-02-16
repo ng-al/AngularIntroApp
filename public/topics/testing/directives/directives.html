@@ -1,0 +1,47 @@
+<div class="testing-directives">
+    <article ng-non-bindable>
+        <h3>Testing Directives</h3>
+        <p>
+            Directives are perhaps the most challenging recipe to test.
+            This is because a directive is tightly coupled to scope and the DOM.
+        </p>
+
+        <h4>Building the Directive</h4>
+        <p>
+            Directives are constructed by AngularJS when the template that references them are compiled and bound with scope.
+            Within a test, you activate the directive in this same manner:
+        </p>
+        <code>
+            // Create the scope.<br />
+            var scope = $rootScope.$new(true);<br />
+            scope.attributeMyDirectiveReferences = "";<br /><br />
+
+            // Compile the template into the link function.<br />
+            var element = angular.element("<template my-directive attribute-my-directive-references="{{attributeMyDitrectiveReferences}}"></template>");<br />
+            var linkFn = $compile(element);<br /><br />
+
+            // Bind to the scope (this will execute the directive).<br />
+            element = linkFn(scope);<br /><br />
+
+            // A digest cycle is needed to complete the binding.<br />
+            scope.$digest();
+        </code>
+
+        <h4>Testing Functionality</h4>
+        <p>
+            The result of executing the previous code, is that the element variable contains the DOM that was modified by the directive.
+            The element is wrapped (by either jqLite or jQuery).
+            You can determine whether the directive correctly reworked the DOM by accessing element[0] (the Javascript node object)
+            and using the Javascript DOM API.
+        </p>
+        <p>
+            <a href="https://docs.angularjs.org/api/ng/function/angular.element">angular.element (jqLite Documentation)</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model">Document Object Model (DOM) Documentation</a>
+        </p>
+
+        <h4>Example</h4>
+        <ul>
+            <li><strong>/test/directives/bizCardDirective_tests.js</strong></li>
+        </ul>
+    </article>
+</div>

@@ -54,6 +54,15 @@
                 .when("/routing/Links", {templateUrl: "topics/routing/links/links.html"})
                 .when("/routing/Dynamic", {templateUrl: "topics/routing/dynamic/dynamic.html"})
 
+                .when("/testing", {templateUrl: "topics/testing/overview/overview.html"})
+                .when("/testing/Overview", {templateUrl: "topics/testing/overview/overview.html"})
+                .when("/testing/Filters", {templateUrl: "topics/testing/filters/filters.html"})
+                .when("/testing/Services", {templateUrl: "topics/testing/services/services.html"})
+                .when("/testing/Controllers", {templateUrl: "topics/testing/controllers/controllers.html"})
+                .when("/testing/Directives", {templateUrl: "topics/testing/directives/directives.html"})
+                .when("/testing/Validators", {templateUrl: "topics/testing/validators/validators.html"})
+                .when("/testing/Mocking", {templateUrl: "topics/testing/mocking/mocking.html"})
+
                 .otherwise({redirectTo: "/welcome"});
         }]);
 })();

@@ -1,0 +1,43 @@
+<div class="testing-validators">
+    <article ng-non-bindable>
+        <h3>Unit Testing Validators</h3>
+        <p>
+            Validators are directives.
+            To test a validator first you need to build it as described in <a class="inline" href="#/testing/Directives">Testing/Directives</a>.
+            However, since validators (ultimately) decide on the validity of model values,
+            they utilize two controllers internal to AngularJS: the form controller, and the model controller.
+        </p>
+        <p>
+            Because of this, you need to include the validation directive on a <strong>named</strong>
+            control within a <strong>named</strong> form. Naming the form will cause a property to be defined on the scope
+            with that name. The value of this property will be the form controller.
+        </p>
+        <p>
+            Naming the control will create a property (of the same name) to appear on the form controller object.
+            This will be the model controller for that control element.
+            Note that it is this model controller through which you will determine if the validator is working.
+            The model controller's <strong>$valid</strong> property is set by AngularJS when your validator is executed.
+        </p>
+        <code>
+            <span style="font-size: .75em">var template = '&lt;form name="form"&gt;&lt;input name="control" type="text" ng-model="uri" proper-uri /&gt;&lt;/form&gt;';</span>
+            <br /><br />
+
+            var formScope = $rootScope.$new(true);<br />
+            var formScope.uri = null;<br /><br />
+
+            var formElement = angular.element(template);<br />
+            var linkFn = $compile(formElement);<br />
+            formElement = linkFn(formScope);<br /><br />
+
+            var formController = formScope.form;<br />
+            var modelController = formController.control;<br />
+        </code>
+
+        <h4>Examples</h4>
+        <ul>
+            <li><span class="column"><strong>test/validators/properUriValidator_tests.js</strong></span><span>Synchronous Validator</span></li>
+            <li><span class="column"><strong>test/validators/emailUniqueValidator_tests.js</strong></span><span>Asynchronous Validator</span></li>
+        </ul>
+
+    </article>
+</div>

@@ -79,6 +79,7 @@
                 _items.push(new RouteItem("Filters", "Filters", "filter", ["Value", "Collection", "Custom"]));
                 _items.push(new RouteItem("CRUD", "User CRUD", "crud", ["List", "View", "Edit", "Delete", "Add", "Notes"]));
                 _items.push(new RouteItem("Routing", "Routing", "routing", ["Overview", "Config", "View", "Links", "Dynamic"]));
+                _items.push(new RouteItem("Testing", "Unit Testing", "testing", ["Overview", "Filters", "Services", "Controllers", "Directives", "Validators", "Mocking"]));
 
                 vm.items = _items;
                 reWritePath();

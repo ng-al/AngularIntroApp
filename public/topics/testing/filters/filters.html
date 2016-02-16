@@ -1,0 +1,24 @@
+<div class="testing-filters">
+    <article ng-non-bindable>
+        <h3>Unit Testing Custom Filters</h3>
+        <p>
+            Filters are the easiest of all recipes to test.  This is because they are constructed via the <strong>$filter</strong> service
+            and rarely do filters inject dependent services; so mocking is rarely required.
+        </p>
+
+        <h4>Building the filter</h4>
+        <p>
+        In a <strong>beforeEach()</strong> block:
+            <ol>
+                <li>Inject the <strong>$filter</strong> service.</li>
+                <li>Create the filter to test:<br /><code>var theFilter = $filter("filterRecipeName");</code></li>
+            </ol>
+        </p>
+
+        <h4>Examples</h4>
+        <ul>
+            <li><span class="column"><strong>/test/filters/fullnameFilter_tests.js</strong></span><span>Value Filter</span></li>
+            <li><span class="column"><strong>/test/filters/vowelUserFilter_tests.js</strong></span><span>Collection Filter</span></li>
+        </ul>
+    </article>
+</div>
