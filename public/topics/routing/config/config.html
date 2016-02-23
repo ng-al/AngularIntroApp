@@ -17,7 +17,7 @@
             The routing data is a mapping between URIs and their corresponding templates (and controllers).
         </p>
         <p>
-            For example, the page you are reading uses this declaration:
+            For example, the page you are reading could have used this declaration:
         </p>
         <code>
             $routeProvider<br />
@@ -26,7 +26,27 @@
             &nbsp;&nbsp;&nbsp;&nbsp;});
         </code>
         <p>
-            The source of the routing configuration can be found at <strong>/app/routing/routeConfig.js</strong>
+            The source of a sample routing configuration can be found at <strong>/topics/routing/config/routeConfig.js</strong>
         </p>
+
+        <h4>Note:</h4>
+        <p>
+            The routing in this intro app does use ngRoute, but does it dynamically:
+        </p>
+        <p>
+            There is a service (<strong>userService</strong>) that has as its provider definition, services for building
+            a data structure that represents the content for the left navigation and tabs. The provider is used by
+            <strong>/app/routing/routeInit</strong>, a config block that builds the data structure and then initializes
+            the routing by querying the data.
+        </p>
+        <p>
+            There are three directives that use the <strong>userService</strong>:
+            (They are all defined in <strong>/app/routing</strong>.)
+        </p>
+        <ul>
+            <li><span class="column"><strong>intro-left-nav</strong></span><span>Component-style</span></li>
+            <li><span class="column"><strong>intro-tabs</strong></span><span>Component-style</span></li>
+            <li><span class="column"><strong>intro-topic-title</strong></span><span>Example of simple link function</span></li>
+        </ul>
     </article>
 </div>

@@ -8,9 +8,12 @@
       <script src="/lib/apSplatter/apSplatter.js"></script>
 
       <script src="/app/IntroApp.js"></script>
-      <script src="/app/routing/routeConfig.js"></script>
-      <script src="/app/routing/routeCtrl.js"></script>
-    
+      <script src="/app/routing/routeService.js"></script>
+      <script src="/app/routing/routeInit.js"></script>
+      <script src="/app/routing/leftNavComponent.js"></script>
+      <script src="/app/routing/tabComponent.js"></script>
+      <script src="/app/routing/topicTitleDirective.js"></script>
+
       <script src="/topics/directive/components/buttonStyleComponent.js"></script>
       <script src="/topics/directive/bizCard/bizCardDirective.js"></script>
 
@@ -34,14 +37,16 @@
       <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
-  <body ng-app="IntroApp" ng-controller="routeCtrl as routing">
+  <body ng-app="IntroApp">
   <header>
-      <div class="app-title" ng-click="routing.goToWelcome()">
-          <span>Introduction to</span>
-          <img src="/images/AngularJS_logo.svg.png">
-      </div>
+      <a href="#welcome">
+          <div class="app-title">
+              <span>Introduction to</span>
+              <img src="/images/AngularJS_logo.svg.png">
+          </div>
+      </a>
       <div class="section-title">
-          <span>{{routing.getSectionTitle()}}</span>
+          <span intro-topic-title></span>
       </div>
       <div class="author">
           <div>Alvin Pivowar</div>
@@ -52,9 +57,9 @@
   </header>
 
   <div class="main-layout">
-    <div ng-include="'/app/routing/leftNav.html'"></div>
+    <intro-left-nav></intro-left-nav>
     <div>
-        <div ng-include="'/app/routing/tabs.html'"></div>
+        <intro-tabs></intro-tabs>
         <div class="topic" ng-view></div>
     </div>
   </div>
