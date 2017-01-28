@@ -11,20 +11,20 @@
             $routeProvider
                 .when("/welcome", {templateUrl: "/app/welcome.html"})
 
-                .when("/binding/Simple", {templateUrl: "/topics/binding/simple/simple.html"})
-                .when("/binding/Repeat", {templateUrl: "/topics/binding/repeat/repeat.html"})
-                .when("/binding/Notes", {templateUrl: "/topics/binding/notes/notes.html"})
+                .when("/binding/Simple", {templateUrl: "topics/binding/simple/simple.html"})
+                .when("/binding/Repeat", {templateUrl: "topics/binding/repeat/repeat.html"})
+                .when("/binding/Notes", {templateUrl: "topics/binding/notes/notes.html"})
 
-                .when("/directive", {templateUrl: "/topics/directive/bizCard/biz-card.html"})
-                .when("/directive/bizCard", {templateUrl: "/topics/directive/bizCard/bizCard.html"})
-                .when("/directive/apSplatter", {templateUrl: "/topics/directive/apSplatter/apSplatter.html"})
-                .when("/directive/Components", {templateUrl: "/topics/directive/components/components.html"})
-                .when("/directive/Validation", {templateUrl: "/topics/directive/validation/validation.html"})
+                .when("/directive", {templateUrl: "topics/directive/bizCard/biz-card.html"})
+                .when("/directive/bizCard", {templateUrl: "topics/directive/bizCard/bizCard.html"})
+                .when("/directive/apSplatter", {templateUrl: "topics/directive/apSplatter/apSplatter.html"})
+                .when("/directive/Components", {templateUrl: "topics/directive/components/components.html"})
+                .when("/directive/Validation", {templateUrl: "topics/directive/validation/validation.html"})
 
-                .when("/filter", {templateUrl: "/topics/filter/value/value.html"})
-                .when("/filter/Value", {templateUrl: "/topics/filter/value/value.html"})
-                .when("/filter/Collection", {templateUrl: "/topics/filter/collection/stooge.html"})
-                .when("/filter/Custom", {templateUrl: "/topics/filter/custom/custom.html"})
+                .when("/filter", {templateUrl: "topics/filter/value/value.html"})
+                .when("/filter/Value", {templateUrl: "topics/filter/value/value.html"})
+                .when("/filter/Collection", {templateUrl: "topics/filter/collection/stooge.html"})
+                .when("/filter/Custom", {templateUrl: "topics/filter/custom/custom.html"})
 
                 .when("/list", {templateUrl: "topics/user/list/demo.html"})
                 .when("/list/Demo", {templateUrl: "topics/user/list/demo.html"})

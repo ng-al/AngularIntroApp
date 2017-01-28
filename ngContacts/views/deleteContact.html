@@ -1,0 +1,30 @@
+<div class="delete-contact">
+    <header>
+        <h1>Contacts Application</h1>
+        <p>Delete Contact</p>
+    </header>
+    <section>
+        <requires-contact-id></requires-contact-id>
+        <p>Do you really want to delete a contact?</p>
+
+        <div class="buttonBar">
+            <button>YES</button>
+            <button>NO</button>
+        </div>
+    </section>
+
+    <section role="instructions">
+        <h3>Instructions</h3>
+        <ol>
+            <li>If you have not already created the "contactService", do it per the instructions on the Introduction page.</li>
+            <li>Create a "deleteContactCtrl" controller.</li>
+            <ul>
+                <li>Use the "controller as" syntax, do not use $scope.</li>
+                <li>The controller will use the contactService to create a new contact.</li>
+            </ul>
+            <li>"Improve" the template so that it shows what contact is about to be deleted.</li>
+            <li>Pressing <strong>NO</strong> should return you to the contact list page. The item will still be in the list.</li>
+            <li>Pressing <strong>YES</strong> will return you to the contact list page. The deleted item will be gone.</li>
+        </ol>
+    </section>
+</div>

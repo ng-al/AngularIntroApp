@@ -1,0 +1,16 @@
+aside[role=alert] {
+    background-color: red;
+}
+
+table td {
+    padding-right: 10px;
+}
+
+.tab {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.tab.active {
+    text-decoration: underline;
+}

@@ -1,0 +1,47 @@
+<div class="update-contact">
+    <header>
+        <h1>Contacts Application</h1>
+        <p>Update Contact</p>
+    </header>
+    <section>
+        <requires-contact-id></requires-contact-id>
+        <form name="create">
+            <label for="firstName">First Name: </label>
+            <input type="text" name="firstName" id="firstName" />
+
+            <label for="lastName">Last Name: </label>
+            <input type="text" name="lastName" id="lastName" /><br />
+
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" /><br />
+
+            <label for="phone">Phone Number: </label>
+            <input type="text" name="phone" id="phone" /><br />
+
+            <div class="buttonBar">
+                <button type="submit">OK</button>
+                <button>Cancel</button>
+            </div>
+        </form>
+    </section>
+
+    <section role="instructions">
+        <h3>Instructions</h3>
+        <ol>
+            <li>If you have not already created the "contactService", do it per the instructions on the Introduction page.</li>
+            <li>Create a "updateContactCtrl" controller.</li>
+            <ul>
+                <li>Use the "controller as" syntax, do not use $scope.</li>
+                <li>The controller will use the contactService to update a contact.</li>
+            </ul>
+            <li>"Wire up" the template to the controller.</li>
+            <li>Pressing <strong>Cancel</strong> should return you to the contact list page.  (Without any data changes.)</li>
+            <li>Pressing <strong>OK</strong> will return you to the contact list page where the changed item will be in the list.</li>
+        </ol>
+        <h4>Extra Credit</h4>
+        <p>
+            Add validation to the page. The service should not be called until all of the required properties are fulfilled,
+            and the email is properly formatted.
+        </p>
+    </section>
+</div>

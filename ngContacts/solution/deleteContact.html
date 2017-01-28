@@ -1,0 +1,31 @@
+<div class="delete-contact" ng-controller="contactCrudCtrl as vm">
+    <header>
+        <h1>Contacts Application</h1>
+        <p>Delete Contact</p>
+    </header>
+    <section>
+        <form>
+            <div ng-if="vm.contact.$id">
+                <p>
+                    Delete contact # {{vm.contact.$id}}:
+                    {{ vm.contact.firstName }} {{ vm.contact.lastName }}?
+                </p>
+            </div>
+
+            <div ng-if="!vm.contact.$id">
+                <p>Choose a contact to delete:</p>
+                <select ng-model="vm.deleteId">
+                    <option value=""></option>
+                    <option value="{{contact.$id}}" ng-repeat="contact in vm.contacts">
+                        {{contact.firstName}} {{contact.lastName}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="buttonBar">
+                <button class="button delete" ng-click="vm.delete()" ng-disabled="vm.isDeleteButtonDisabled()">YES</button>
+                <button class="button cancel" ng-click="vm.cancel()">NO</button>
+            </div>
+        </form>
+    </section>
+</div>

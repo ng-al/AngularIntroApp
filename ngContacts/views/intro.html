@@ -1,0 +1,60 @@
+<div class="intro">
+    <header>
+        <h1>Contacts Application</h1>
+        <p>Introduction</p>
+    </header>
+    <p>
+        This small application is designed for you to change.
+        While the Contact List page is functional, the Create, Update, and Delete pages are not.
+        In addition, the app uses essentially no styling.
+    </p>
+
+    <section role="instructions">
+        <h3>Instructions to the Javascript Applicant</h3>
+        <p>
+            There is a mock repository service that simulates a simple database.
+            It is initialized when the app starts up and is used by the contactListCtrl.
+            Your goal is to take the three non-functioning pages and make them work.
+            To do this you need to create a service AS IF the data was provided over HTTP from a remote server.
+        </p>
+        <p>
+            Although the Contact List page inerfaces with the mock repository directly,
+            the other three pages should <string>NOT</string> inject MockRepository;
+            rather they will consume a "contactService" that you will create.
+        </p>
+        <ol>
+            <li>Create a "contactService".</li>
+            <ul>
+                <li>The service should provide: createContact, updateContact, and deleteContact.</li>
+                <li>Internally (in the service), use the Mock Repository to perform the actual work.</li>
+                <li>The create and update methods should return the new/updated contact object (the repository returns this to you.)</li>
+                <li>
+                    Like a "real" service, your service should <strong>not</strong> return the objects directly; use promises.
+                    See note, below.
+                </li>
+            </ul>
+            <li>Finish the Create Contact page.</li>
+            <li>Finish the Update Contact page.</li>
+            <li>Finish the Delete Contact page.</li>
+        </ol>
+        <aside role="note">
+            <strong>Note:</strong>
+            <q>
+                The promise that your service returns should yield an object of the same shape as the $http service.
+                This is an object that has a property named 'data'. The contact(s) returned from the service should
+                be the value of that property.
+            </q>
+        </aside>
+        <h4>Extra Credit</h4>
+        <p>
+            Add a new "column" to the contact.  For example, a personal web page URL.
+            All pages (except delete) should show the new column.
+            If you added validation to create or update, then add validation for the new field.
+        </p>
+    </section>
+
+    <section role="instructions">
+        <h3>Instructions to the HTML5/CSS3 Applicant</h3>
+        <em>Andrew, say something here.</em>
+    </section>
+</div>

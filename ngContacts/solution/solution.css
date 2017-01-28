@@ -1,0 +1,299 @@
+/*
+    Semantic alert
+*/
+
+aside[role=alert] {
+    background-color: #F8F8A5;
+    border: solid 2px grey;
+    color: red;
+    left: 100px;
+    margin-bottom: 30px;
+    padding: 0 10px 10px 10px;
+    position: relative;
+    text-align: center;
+    width: 400px;
+}
+
+aside[role=alert] strong {
+    border-bottom: 1px inset grey;
+    display: inline-block;
+    width: 100%;
+}
+
+aside[role=alert] p {
+    color: black;
+    margin: 10px 0 0 0;
+    text-align: left;
+}
+
+
+body {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    padding-left: 20px;
+}
+
+
+/*
+    Buttons
+*/
+
+.buttonBar {
+    float: right;
+    margin-top: 30px;
+}
+
+button {
+    background-color: lightgrey;
+    border: solid 1px grey;
+    font-size: larger;
+    margin-right: 6px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: .65;
+}
+
+button.button.delete {
+    background-color: #ff8080;
+}
+
+button.button.save {
+    background-color: #7FC056;
+}
+
+
+/*
+    Form and controls.
+*/
+
+form {
+    width: 450px;
+}
+
+.delete-contact form {
+    width: 280px;
+}
+
+form input[type=text], input[type=email] {
+    border: 1px solid lightgrey;
+    margin-right: 6px;
+    width: 150px;
+}
+
+form input[type=text][required], input[type=email][required] {
+    border: 1px solid #FFC526;
+}
+
+form label {
+    display: inline-block;
+    font-size: smaller;
+    font-weight: bold;
+    text-transform: lowercase;
+    width: 60px;
+}
+
+form select {
+    border: solid 1px grey;
+    width: 200px;
+}
+
+
+/*
+    Semantic header with byline
+*/
+
+header {
+    background-color: #585F69;
+    color: #FAFAFA;
+    margin-left: -20px;
+    padding: 10px 0 0 20px;
+}
+
+header h1 {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 1.9em;
+    margin: 0;
+    text-decoration: underline;
+}
+
+header h1 + p {
+    font-style: italic;
+    margin-top: 0;
+}
+
+header h1 + p:before {
+    content: "\2014\00a0\00a0";
+}
+
+
+/*
+    Tabs
+*/
+
+.tabBar {
+    left: 420px;
+    position: absolute;
+    top: 26px;
+}
+
+.tabBar .tab {
+    background-color: #7FC056;
+    border: solid 1px black;
+    display: inline-block;
+    height: 30px;
+    margin-right: 20px;
+    width: 110px;
+}
+
+.tabBar .tab span {
+    display: inline-block;
+    font-family: "Arial Black", Gadget, sans-serif;
+    height: 100%;
+    left: 0;
+    padding-top: 2px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+    transition: left .4s;
+}
+
+.tabBar .tab span:hover {
+    left: -22px;
+}
+
+.tabBar .tab.active {
+    background-color: #FFC526;
+}
+
+.tabBar .tab.active span:hover {
+    left: 0;
+}
+
+
+/*
+    Misc.
+*/
+
+h3 {
+    color: #7FC056;
+    font-family: "Arial Black", Gadget, sans-serif;
+}
+
+h4 {
+    color: #FFC526;
+    font-family: "Arial Black", Gadget, sans-serif;
+}
+
+section {
+    padding-top: 2px;
+}
+
+section[role=instructions] {
+    display: none;
+}
+
+
+/*
+     Section Styling
+*/
+
+/* Intro section application description. */
+.intro header + p {
+    border-left: dashed 1px black;
+    margin: -20px 0 0 16px;
+    padding: 20px 0 0 10px;
+    width: 740px;
+}
+
+
+/*
+    The create contact button on the contact list page.
+    Note that we are changing the text from "Create Contact" to "Create".
+*/
+
+.contact-list section > button {
+    background-color: #7FC056;
+    left: 800px;
+    line-height: 0;
+    position: relative;
+    text-indent: -9999px;
+}
+
+.contact-list section > button:after {
+    content: "Create";
+    display: block;
+    line-height: initial;
+    text-indent: 0;
+}
+
+
+.contact-list section {
+    padding-top: 30px;
+}
+
+
+/* The table on the contact list page. */
+
+.contact-list table {
+    border-collapse: collapse;
+    margin-top: -50px;
+}
+
+.contact-list table tr:nth-child(even) > td:nth-child(1),
+.contact-list table tr:nth-child(even) > td:nth-child(2),
+.contact-list table tr:nth-child(even) > td:nth-child(3),
+.contact-list table tr:nth-child(even) > td:nth-child(4) {
+    background-color: #EDEDED;
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+
+.contact-list table tr:nth-child(odd) > td {
+    padding-bottom: 6px;
+    padding-top: 6px;
+}
+
+.contact-list table tr > td button {
+    font-size: smaller;
+}
+
+.contact-list table tr > td:nth-child(5) button {
+    border-color: #7FC056;
+}
+
+.contact-list table tr > td:nth-child(6) button {
+    border-color: #ff8080;
+}
+
+.contact-list table tr:nth-child(odd) td button {
+    background-color: white;
+}
+
+.contact-list table tr > td {
+    border-bottom: solid 1px grey;
+    padding-right: 10px;
+}
+
+.contact-list table tr > td:first-child {
+    padding-left: 10px;
+}
+
+.contact-list table tr > td:nth-child(3) {
+    color: blue;
+}
+
+.contact-list table tr > td:nth-child(5) {
+    border: none;
+    padding-left: 20px;
+}
+
+.contact-list table tr > td:nth-child(6) {
+    border: none;
+}
+

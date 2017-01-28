@@ -1,0 +1,30 @@
+<div ng-controller="contactCrudCtrl as vm">
+    <header>
+        <h1>Contacts Application</h1>
+        <p>Create Contact</p>
+    </header>
+    <section>
+        <form name="create" ng-submit="vm.submit(create.$valid, vm.contact)">
+            <div>
+                <label>Name:</label>
+                <input type="text" name="firstName" placeholder="first" ng-model="vm.contact.firstName" required />
+                <input type="text" name="lastName" placeholder="last" ng-model="vm.contact.lastName" required />
+            </div>
+
+            <div>
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="email" ng-model="vm.contact.email" required />
+            </div>
+
+            <div>
+                <label for="phone">Phone: </label>
+                <input type="text" name="phone" id="phone" ng-model="vm.contact.phone" />
+            </div>
+
+            <div class="buttonBar">
+                <button class="button save" type="submit">OK</button>
+                <button class="button cancel" ng-click="vm.cancel()">Cancel</button>
+            </div>
+        </form>
+    </section>
+</div>

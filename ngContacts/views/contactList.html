@@ -1,0 +1,20 @@
+<div class="contact-list" ng-controller="contactListCtrl as vm">
+    <header>
+        <h1>Contacts Application</h1>
+        <p>Contact List</p>
+    </header>
+    <section>
+        <button ng-click="vm.createContact()">Create Contact</button>
+        <table>
+            <tr ng-repeat='contact in vm.contacts | orderBy:"$id"'>
+                <td>{{contact.firstName}}</td>
+                <td>{{contact.lastName}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.phone}}</td>
+
+                <td><button ng-click="vm.updateContact(contact)">Update</button></td>
+                <td><button ng-click="vm.deleteContact(contact)">Delete</button></td>
+            </tr>
+        </table>
+    </section>
+</div>
